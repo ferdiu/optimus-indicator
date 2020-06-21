@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [[ "`/usr/lib/optimus-indicator/check-gpu`" = "intel" ]]; then
+  echo "off"
+  exit 0
+fi
+
+if [[ "$NVRUN_NVIDIA_SESSION" = "1" ]]; then
+  echo "nvidia-xrun"
+  exit 0
+fi
+
+if [[ ! -S /var/run/bumblebee.socket ]]; then
+  echo "nvidia-xrun"
+  exit 0
+fi
+
+b_socket_response=$(echo -ne 'S\0' | socat - UNIX-CONNECT:/var/run/bumblebee.socket 2> /dev/null | awk '{printf $1}')
+
+if [[ ${b_socket_response%=} = "Error" ]]; then
+  echo "nvidia-xrun"
+  exit 0
+fi
+
+echo "bumblebee"
+exit 0

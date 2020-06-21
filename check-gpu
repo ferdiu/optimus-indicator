@@ -1,0 +1,10 @@
+#!/bin/bash
+STATUS=$(cat /proc/acpi/bbswitch | awk '{print $2}')
+if [ "$STATUS" == "ON" ]; then
+	echo "nvidia"
+elif [ "$STATUS" == "OFF" ]; then
+	echo "intel"
+else
+	exit 1
+fi
+exit 0
