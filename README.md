@@ -6,7 +6,7 @@ It shows the bumblebee icon if bumblebee is in use, the NVIDIA icon if Xorg was 
 
 It was meant to be used with both `bumblebee` and `nvidia-xrun` on Debian.
 
-If you are interested in this kind of configuration you may like my other projects [nvrun](https://github.com/ferdiu/nvrun) and [nvidia-xorg](https://github.com/ferdiu/nvidia-xrun) meant to be used with this setup.
+If you are interested in this kind of configuration you may like my other projects [nvrun](https://github.com/ferdiu/nvrun) and [nvidia-xrun](https://github.com/ferdiu/nvidia-xrun) meant to be used with this setup.
 
 ## Structure
 * **optimus-indicator** - uses following dir structure:
